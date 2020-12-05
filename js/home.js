@@ -1,8 +1,8 @@
 function createArticle(item) {
     return `
-    <div class="col-xl-3 col-lg-4 col-md-6 col-12 mt-3" data-category='${item.category}'>
+    <div class='book-listing' data-category='${item.category}'>
         <div class="card">
-            <a href="${item.url}">
+            <a href="${item.url}" class='image-holder'>
                 <img class="card-img-top" src="${item.image_small}" alt="${item.image_alt}">
             </a>
             <div class="card-body">
@@ -10,7 +10,7 @@ function createArticle(item) {
                     <a href="${item.url}">${item.title}</a>
                 </h5>
                 <p class="card-text">${item.author}</p>
-                <p class="card-text mt-5">${item.price} RSD</p>
+                <p class="card-text">${item.price} RSD</p>
                 <button href="#" class="btn btn-primary add-to-cart" data-id=${item.id}>Dodaj u korpu</button>
             </div>
         </div>
