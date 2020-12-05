@@ -11,7 +11,7 @@ const books = [
         price: 599
     },
     {
-        id : 1,
+        id : 2,
         url: 'books/1.html',
         category : 'philosophy',
         image_small : 'images/1/nesto.png',
@@ -22,7 +22,7 @@ const books = [
         price: 599
     },
     {
-        id : 1,
+        id : 3,
         url: 'books/1.html',
         category : 'philosophy',
         image_small : 'images/1/nesto.png',
@@ -33,7 +33,7 @@ const books = [
         price: 599
     },
     {
-        id : 1,
+        id : 4,
         url: 'books/1.html',
         category : 'fantasy',
         image_small : 'images/1/nesto.png',
@@ -44,7 +44,7 @@ const books = [
         price: 599
     },
     {
-        id : 1,
+        id : 5,
         url: 'books/1.html',
         category : 'fantasy',
         image_small : 'images/1/nesto.png',
@@ -55,7 +55,7 @@ const books = [
         price: 599
     },
     {
-        id : 1,
+        id : 6,
         url: 'books/1.html',
         category : 'fantasy',
         image_small : 'images/1/nesto.png',
@@ -66,7 +66,7 @@ const books = [
         price: 599
     },
     {
-        id : 1,
+        id : 7,
         url: 'books/1.html',
         category : 'history',
         image_small : 'images/1/nesto.png',
@@ -77,7 +77,7 @@ const books = [
         price: 599
     },
     {
-        id : 1,
+        id : 8,
         url: 'books/1.html',
         category : 'history',
         image_small : 'images/1/nesto.png',
@@ -88,7 +88,7 @@ const books = [
         price: 599
     },
     {
-        id : 1,
+        id : 9,
         url: 'books/1.html',
         category : 'history',
         image_small : 'images/1/nesto.png',
@@ -99,7 +99,7 @@ const books = [
         price: 599
     },
     {
-        id : 1,
+        id : 10,
         url: 'books/1.html',
         category : 'foreign_books',
         image_small : 'images/1/nesto.png',
@@ -110,7 +110,7 @@ const books = [
         price: 599
     },
     {
-        id : 1,
+        id : 11,
         url: 'books/1.html',
         category : 'foreign_books',
         image_small : 'images/1/nesto.png',
@@ -121,7 +121,7 @@ const books = [
         price: 599
     },
     {
-        id : 1,
+        id : 12,
         url: 'books/1.html',
         category : 'foreign_books',
         image_small : 'images/1/nesto.png',
@@ -132,3 +132,14 @@ const books = [
         price: 599
     },
 ]
+
+function getBookById(id) {
+    let count = books.length;
+
+    for (let i = 0; i < count; i++) {
+        if (books[i].id === id)
+            return books[i];
+    }
+
+    return null;
+}

@@ -11,7 +11,7 @@ function createArticle(item) {
                 </h5>
                 <p class="card-text">${item.author}</p>
                 <p class="card-text mt-5">${item.price} RSD</p>
-                <a href="#" class="btn btn-primary add-to-cart" data-id=${item.id}>Dodaj u korpu</a>
+                <button href="#" class="btn btn-primary add-to-cart" data-id=${item.id}>Dodaj u korpu</button>
             </div>
         </div>
     </div>
