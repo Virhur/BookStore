@@ -13,13 +13,21 @@
 }
 
 .image-holder img {
-    height: 310px;
+    height: 320px;
     width: 210px;
 }
 
+.card-body h5 {
+    height: 50px;
+}
+
+.card-body .author {
+    height: 50px;
+}
+
 .book-listing {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px;
+    width: 210px;
 }
 
 .no-scroll {

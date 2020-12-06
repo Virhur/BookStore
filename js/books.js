@@ -23,13 +23,15 @@ class Book {
                 <a href="#" class='image-holder toggle-book-modal' data-id='#book-modal-${this.id}'>
                     <img class="card-img-top" src="${this.image_small}" alt="${this.image_alt}" data-id='#book-modal-${this.id}'>
                 </a>
-                <div class="card-body">
-                    <h5 class="card-title">
+                <div class='card-body'>
+                    <h5 class="text-center">
                         <a href="#" class='toggle-book-modal' data-id='#book-modal-${this.id}'>${this.title}</a>
                     </h5>
-                    <p class="card-text">${this.author}</p>
-                    <p class="card-text">${this.getFormattedPrice()} RSD</p>
-                    <button href="#" class="btn btn-primary add-to-cart" data-id=${this.id}>Dodaj u korpu</button>
+                    <p class="author text-center">${this.author}</p>
+                    <p class="text-center">${this.getFormattedPrice()} RSD</p>
+                    <div class='col-12 d-flex justify-content-center'>
+                        <button href="#" class="btn btn-primary add-to-cart" data-id=${this.id}>Dodaj u korpu</button>
+                    </div>
                 </div>
             </div>
         </div>
