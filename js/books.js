@@ -63,7 +63,7 @@ class Book {
 
 class Books {
     constructor() {
-        $.getJSON('/data/books.json', (data) => {
+        $.getJSON('data/books.json', (data) => {
             this.data = [];
 
             data.forEach(item => {
