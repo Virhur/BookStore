@@ -35,7 +35,7 @@ class Book {
                     <div class="input-group-prepend">
                         <button class="input-group-text decrement-cart-item" data-id='${this.id}'>-</button>
                     </div>
-                    <input type="text" class="form-control" style="width: 45px" value="${count}" readonly>
+                    <div class='cart-count'>${count}</div>
                     <div class="input-group-append">
                         <button class="input-group-text increment-cart-item" data-id='${this.id}'>+</button>
                         <button class="btn btn-danger remove-from-cart" data-id='${this.id}'>
@@ -83,7 +83,7 @@ class Book {
                     <div class="input-group-prepend">
                         <button class="input-group-text decrement-cart-item" data-id='${this.id}'>-</button>
                     </div>
-                    <input type="text" class="form-control" style="width: 45px" value="${count}" readonly>
+                    <div class='cart-count'>${count}</div>
                     <div class="input-group-append">
                         <button class="input-group-text increment-cart-item" data-id='${this.id}'>+</button>
                         <button class="btn btn-danger remove-from-cart" data-id='${this.id}'>
