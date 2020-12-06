@@ -67,3 +67,18 @@
 #cart-content td {
     vertical-align: middle;
 }
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

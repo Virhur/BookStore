@@ -4,217 +4,250 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookStore | Korpa</title>
-    <meta name="description" content="prodavnica, knjiga, knjizara, e-knjige">
+    <meta name="keywords" content="prodavnica, knjiga, knjizara, e-knjige">
+    <meta name="author" content="Luka Bulbuk">
+    <meta name="description" content="Bookstore je prodavnica knjiga koja nudi veliki izbor žanrova i naslova."/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css" integrity="sha512-NXUhxhkDgZYOMjaIgd89zF2w51Mub53Ru3zCNp5LTlEzMbNNAjTjDbpURYGS5Mop2cU4b7re1nOIucsVlrx9fA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- navbar start -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+    <div class="wrapper">
+        <!-- navbar start -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><i class="fas fa-book-open mr-1"></i>BookStore</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation"></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 ">
+                        <!-- dodati active klasu na odredjene strane -->
+                        <li class="nav-item"> 
+                            <a class="nav-link" href="index.html">Početna</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="prodajna_mesta.html" class="nav-link">Prodajna mesta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="o_nama.html">O nama</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Korpa <span id='total-count'>(0)</span>
+                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" id='korpa' aria-labelledby="dropdownId">
+                                <div class="row">
+                                    <div class="col-12" id='korpa-empty'>
+                                        <p class="text-center">Trenutno nemate ništa u korpi.</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <ul class="list-group" id='korpa-items'>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <a href="kupi.html" class="btn btn-success mr-2">Kupi</a>
+                                        <a href="korpa.html" class="btn btn-primary mr-2">Korpa</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- navbar end -->
+
+        <!-- small screen slider start -->
+        <div id="carouselExampleControlsSmall" class="carousel slide d-lg-none" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="images/slider_4.png" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/slider_5.png" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/slider_6.png" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControlsSmall" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControlsSmall" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- small screen slider end -->
+
+        <!-- large screen slider start -->
+        <div id="carouselExampleControls" class="carousel slide d-none d-lg-block" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="images/slider_1.png" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/slider_2.png" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/slider_3.png" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- large screen slider end -->
+
+        <!-- main content start -->
         <div class="container">
-            <a class="navbar-brand" href="index.html">BookStore</a>
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                aria-expanded="false" aria-label="Toggle navigation"></button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0 ">
-                    <!-- dodati active klasu na odredjene strane -->
-                    <li class="nav-item"> 
-                        <a class="nav-link" href="index.html">Početna</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a href="prodajna_mesta.html" class="nav-link">Prodajna mesta</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">O nama</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Korpa <span id='total-count'>(0)</span>
-                            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" id='korpa' aria-labelledby="dropdownId">
-                            <div class="row">
-                                <div class="col-12" id='korpa-empty'>
-                                    <p class="text-center">Trenutno nemate ništa u korpi.</p>
+            <div class="row mt-5 mb-5">
+                <div class="col-lg-7 col-12">
+                    <h2>Kako možemo da Vam pomognemo?</h2>
+                    <form action="#" class='form mt-3' id='contact-form'>
+                        <div class="row form-group">
+                            <div class="col-6 from-group">
+                                <label for="ime">Ime</label>
+                                <input type="text" name="ime" id="ime" class="form-control" placeholder="Unesite ime ...">
+                                <div class="invalid-feedback d-none" id='ime-failed-required'>
+                                    Polje je obavezno
                                 </div>
-                                <div class="col-12">
-                                    <ul class="list-group" id='korpa-items'>
-                                        
-                                    </ul>
+                                <div class="invalid-feedback d-none" id='ime-failed-format'>
+                                    Nije pravilan format imena
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-12 d-flex justify-content-end">
-                                    <a href="kupi.html" class="btn btn-success mr-2">Kupi</a>
-                                    <a href="korpa.html" class="btn btn-primary mr-2">Korpa</a>
+                            <div class="col-6 from-group">
+                                <label for="prezime">Prezime</label>
+                                <input type="text" name="prezime" id="prezime" class="form-control" placeholder="Unesite prezime ...">
+                                <div class="invalid-feedback d-none" id='prezime-failed-required'>
+                                    Polje je obavezno
+                                </div>
+                                <div class="invalid-feedback d-none" id='prezime-failed-format'>
+                                    Nije pravilan format prezimena
                                 </div>
                             </div>
                         </div>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- navbar end -->
-
-    <!-- small screen slider start -->
-    <div id="carouselExampleControls" class="carousel slide d-lg-none" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="images/1920_600.png" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="images/1920_600.png" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="images/1920_600.png" alt="Third slide">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <!-- small screen slider end -->
-
-    <!-- large screen slider start -->
-    <div id="carouselExampleControls" class="carousel slide d-none d-lg-block" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="images/1920_300.png" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="images/1920_300.png" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="images/1920_300.png" alt="Third slide">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <!-- large screen slider end -->
-
-    <!-- main content start -->
-    <div class="container">
-        <div class="row mt-5 mb-5">
-            <div class="col-lg-7 col-12">
-                <h2>Kako možemo da Vam pomognemo?</h2>
-                <form action="#" class='form mt-3' id='contact-form'>
-                    <div class="row form-group">
-                        <div class="col-6 from-group">
-                            <label for="ime">Ime</label>
-                            <input type="text" name="ime" id="ime" class="form-control" placeholder="Unesite ime ...">
-                            <div class="invalid-feedback d-none" id='ime-failed-required'>
-                                Polje je obavezno
+                        <div class="row form-group">
+                            <div class="col-6 from-group">
+                                <label for="telefon">Telefon</label>
+                                <input type="text" name="telefon" id="telefon" class="form-control" placeholder="Unesite telefon ...">
+                                <div class="invalid-feedback d-none" id='telefon-failed-required'>
+                                    Polje je obavezno
+                                </div>
+                                <div class="invalid-feedback d-none" id='telefon-failed-format'>
+                                    Nije pravilan format telefona
+                                </div>
                             </div>
-                            <div class="invalid-feedback d-none" id='ime-failed-format'>
-                                Nije pravilan format imena
+                            <div class="col-6 from-group">
+                                <label for="email">E-mail</label>
+                                <input type="text" name="email" id="email" class="form-control" placeholder="Unesite e-mail adresu ...">
+                                <div class="invalid-feedback d-none" id='email-failed-required'>
+                                    Polje je obavezno
+                                </div>
+                                <div class="invalid-feedback d-none" id='email-failed-format'>
+                                    Nije pravilan format email adrese
+                                </div>
                             </div>
                         </div>
-                        <div class="col-6 from-group">
-                            <label for="prezime">Prezime</label>
-                            <input type="text" name="prezime" id="prezime" class="form-control" placeholder="Unesite prezime ...">
-                            <div class="invalid-feedback d-none" id='prezime-failed-required'>
-                                Polje je obavezno
-                            </div>
-                            <div class="invalid-feedback d-none" id='prezime-failed-format'>
-                                Nije pravilan format prezimena
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-6 from-group">
-                            <label for="telefon">Telefon</label>
-                            <input type="text" name="telefon" id="telefon" class="form-control" placeholder="Unesite telefon ...">
-                            <div class="invalid-feedback d-none" id='telefon-failed-required'>
-                                Polje je obavezno
-                            </div>
-                            <div class="invalid-feedback d-none" id='telefon-failed-format'>
-                                Nije pravilan format telefona
+                        <div class="row form-group">
+                            <div class="col-12 from-group">
+                                <label for="poruka">Poruka</label>
+                                <textarea name="poruka" id="poruka" cols="30" rows="10" class="form-control" placeholder="Unesite poruku ..."></textarea>
+                                <div class="invalid-feedback d-none" id='poruka-failed-required'>
+                                    Polje je obavezno
+                                </div>
                             </div>
                         </div>
-                        <div class="col-6 from-group">
-                            <label for="email">E-mail</label>
-                            <input type="text" name="email" id="email" class="form-control" placeholder="Unesite e-mail adresu ...">
-                            <div class="invalid-feedback d-none" id='email-failed-required'>
-                                Polje je obavezno
-                            </div>
-                            <div class="invalid-feedback d-none" id='email-failed-format'>
-                                Nije pravilan format email adrese
+                        <div class="row form-group">
+                            <div class="col-12 form-group d-flex justify-content-end">
+                                <button type="submit" class='btn btn-primary'>
+                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                    Pošalji
+                                </button>
                             </div>
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-12 from-group">
-                            <label for="poruka">Poruka</label>
-                            <textarea name="poruka" id="poruka" cols="30" rows="10" class="form-control" placeholder="Unesite poruku ..."></textarea>
-                            <div class="invalid-feedback d-none" id='poruka-failed-required'>
-                                Polje je obavezno
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-12 form-group d-flex justify-content-end">
-                            <button type="submit" class='btn btn-primary'>
-                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                Pošalji
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-5 col-12">
-                <h2>Kontakt informacije</h2>
-                <div class="row mt-4">
-                    <div class="col-12 d-flex">
-                        <i class="fa fa-phone mt-2" aria-hidden="true"></i>
-                        <div class="ml-3">
-                            <h4>Telefon</h4>
-                            <p>+ 381 60 123 45 67</p>
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <div class="row mt-4">
-                    <div class="col-12 d-flex">
-                        <i class="fa fa-envelope mt-2" aria-hidden="true"></i>
-                        <div class="ml-3">
-                            <h4>E-mail</h4>
-                            <p>info@bookstore.com</p>
+                <div class="col-lg-5 col-12">
+                    <h2>Kontakt informacije</h2>
+                    <div class="row mt-4">
+                        <div class="col-12 d-flex">
+                            <i class="fa fa-phone mt-2" aria-hidden="true"></i>
+                            <div class="ml-3">
+                                <h4>Telefon</h4>
+                                <p>+ 381 60 123 45 67</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-12 d-flex">
-                        <i class="fa fa-clock mt-2" aria-hidden="true"></i>
-                        <div class="ml-3">
-                            <h4>Radno vreme</h4>
-                            <p>Pon-Sub : 09 - 17h</p>
+                    <div class="row mt-4">
+                        <div class="col-12 d-flex">
+                            <i class="fa fa-envelope mt-2" aria-hidden="true"></i>
+                            <div class="ml-3">
+                                <h4>E-mail</h4>
+                                <p>info@bookstore.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12 d-flex">
+                            <i class="fa fa-clock mt-2" aria-hidden="true"></i>
+                            <div class="ml-3">
+                                <h4>Radno vreme</h4>
+                                <p>Pon-Sub : 09 - 17h</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12 d-flex">
+                            <i class="fa fa-building mt-2" aria-hidden="true"></i>
+                            <div class="ml-3">
+                                <h4>Adresa</h4>
+                                <p>Terazije 15, 11000 Beograd</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="map" style="width:100%;height:400px;"></div> 
-    <!-- main content end -->
+        <div id="map" style="width:100%;height:400px;"></div> 
+        <!-- main content end -->
+    </div>
 
     <!-- footer-start -->
-    <div class="mt-5"></div>
+    <div class="bg-dark text-light w-100" id='footer'>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-between flex-nowrap">
+                    <div class="d-flex flex-column align-items-center">
+                        <i class="fas fa-book-open" style="font-size: 50px;"></i>
+                        <h3>BookStore</h3>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                       <p>Copyright © Luka Designs 2020</p>
+                       <a href="dokumentacija.pdf">Dokumentacija</a>
+                    </div>
+                    <div class="d-flex justify-content-around align-items-center">
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-lg fa-fw" style="font-size: 25px; color: white;"></i></a>
+                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-lg fa-fw" style="font-size: 25px; color: white;"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-lg fa-fw" style="font-size: 25px; color: white;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- footer-end -->
 
     <!-- page js -->
