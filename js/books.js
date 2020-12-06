@@ -9,6 +9,7 @@ class Book {
         this.title = item.title;
         this.author = item.author;
         this.price = item.price;
+        this.description = item.description;
     }
 
     getFormattedPrice() {
@@ -19,12 +20,12 @@ class Book {
         return `
         <div class='book-listing' data-category='${this.category}'>
             <div class="card">
-                <a href="${this.url}" class='image-holder'>
-                    <img class="card-img-top" src="${this.image_small}" alt="${this.image_alt}">
+                <a href="#" class='image-holder toggle-book-modal' data-id='#book-modal-${this.id}'>
+                    <img class="card-img-top" src="${this.image_small}" alt="${this.image_alt}" data-id='#book-modal-${this.id}'>
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="${this.url}">${this.title}</a>
+                        <a href="#" class='toggle-book-modal' data-id='#book-modal-${this.id}'>${this.title}</a>
                     </h5>
                     <p class="card-text">${this.author}</p>
                     <p class="card-text">${this.getFormattedPrice()} RSD</p>
@@ -59,8 +60,45 @@ class Book {
         </li>
         `;
     }
-}
 
+    getModalHTML() {
+        return `
+        <div class="book-modal d-none" id="book-modal-${this.id}">
+            <div class="container bg-white book-modal-content">
+                <div class="row">
+                    <div class="col-6">
+                        <h1>${this.title}</h1>
+                    </div>
+                    <div class="col-6 d-flex justify-content-end">
+                        <button class="btn btn-lg btn-dager close-book-modal">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row mt-2 flex-nowrap">
+                    <div class="book-modal-image-holder d-none d-lg-block">
+                        <img src="${this.image_large}" alt="${this.image_alt}">
+                    </div>
+                    <div class='book-modal-text-holder'>
+                        <h3>Opis knjige:</h3>
+                        <p class="text-justify mt-2">
+                            ${this.description}
+                        </p>
+                        <div class="row justify-content-between mt-2">
+                            <div class='book-modal-text-holder'>
+                                <h4>Cena: ${this.getFormattedPrice()} RSD</h4>
+                            </div>
+                            <div class='book-modal-text-holder'>
+                                <button href="#" class="btn btn-primary add-to-cart" data-id='${this.id}'>Dodaj u korpu</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+    }
+}
 class Books {
     constructor() {
         $.getJSON('data/books.json', (data) => {
@@ -71,6 +109,7 @@ class Books {
             })
 
             this.loadBooks(this.data);
+            this.loadModals(this.data);
         });
     }
 
@@ -93,6 +132,16 @@ class Books {
         });
 
         document.getElementById('knjige').innerHTML = html;
+    }
+
+    loadModals(data) {
+        let html = "";
+
+        data.forEach((item) => {
+            html += item.getModalHTML();
+        });
+
+        document.getElementById('modals').innerHTML = html;
     }
 
     filterBooks(filter) {

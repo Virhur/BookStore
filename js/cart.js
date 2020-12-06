@@ -31,7 +31,8 @@ class Cart {
 
             this.cart.forEach(item => {
                 let book = books.getBookById(item.id);
-                html += book.getCartHTML(item.count);
+                if (book != null)
+                    html += book.getCartHTML(item.count);
             })
 
             $('#korpa-items').html(html);

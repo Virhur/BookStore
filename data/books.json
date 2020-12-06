@@ -8,7 +8,8 @@
         "image_alt" : "alt",
         "title" : "Title",
         "author" : "Some author",
-        "price" : 599
+        "price" : 599,
+        "description" : ""
     },
     {
         "id" : 2,
@@ -19,7 +20,8 @@
         "image_alt" : "alt",
         "title" : "Title",
         "author" : "Some author",
-        "price" : 599
+        "price" : 599,
+        "description" : ""
     },
     {
         "id" : 3,
@@ -30,7 +32,8 @@
         "image_alt" : "alt",
         "title" : "Title",
         "author" : "Some author",
-        "price" : 599
+        "price" : 599,
+        "description" : ""
     },
     {
         "id" : 4,
@@ -41,7 +44,8 @@
         "image_alt" : "mracna_suma",
         "title" : "Mračna Šuma",
         "author" : "Liju Cisin",
-        "price" : 1399
+        "price" : 1399,
+        "description" : ""
     },
     {
         "id" : 5,
@@ -52,7 +56,8 @@
         "image_alt" : "zmajeve_oci",
         "title" : "Zmajeve oči",
         "author" : "Stiven King",
-        "price" : 1490
+        "price" : 1490,
+        "description" : ""
     },
     {
         "id" : 6,
@@ -63,7 +68,8 @@
         "image_alt" : "drakulin_gost",
         "title" : "Drakulin gost",
         "author" : "Brem Stoker",
-        "price" : 1210
+        "price" : 1210,
+        "description" : ""
     },
     {
         "id" : 7,
@@ -74,7 +80,8 @@
         "image_alt" : "alt",
         "title" : "Title",
         "author" : "Some author",
-        "price" : 599
+        "price" : 599,
+        "description" : ""
     },
     {
         "id" : 8,
@@ -85,7 +92,8 @@
         "image_alt" : "alt",
         "title" : "Title",
         "author" : "Some author",
-        "price" : 599
+        "price" : 599,
+        "description" : ""
     },
     {
         "id" : 9,
@@ -96,7 +104,8 @@
         "image_alt" : "alt",
         "title" : "Title",
         "author" : "Some author",
-        "price" : 599
+        "price" : 599,
+        "description" : ""
     },
     {
         "id" : 10,
@@ -107,7 +116,8 @@
         "image_alt" : "alt",
         "title" : "Title",
         "author" : "Some author",
-        "price" : 599
+        "price" : 599,
+        "description" : ""
     },
     {
         "id" : 11,
@@ -118,7 +128,8 @@
         "image_alt" : "alt",
         "title" : "Title",
         "author" : "Some author",
-        "price" : 599
+        "price" : 599,
+        "description" : ""
     },
     {
         "id" : 12,
@@ -129,7 +140,8 @@
         "image_alt" : "alt",
         "title" : "Title",
         "author" : "Some author",
-        "price" : 599
+        "price" : 599,
+        "description" : ""
     },
     {
         "id" : 13,
@@ -140,7 +152,8 @@
         "image_alt" : "alt",
         "title" : "Title",
         "author" : "Some author",
-        "price" : 599
+        "price" : 599,
+        "description" : ""
     },
     {
         "id" : 14,
@@ -151,7 +164,8 @@
         "image_alt" : "alt",
         "title" : "Title",
         "author" : "Some author",
-        "price" : 599
+        "price" : 599,
+        "description" : ""
     },
     {
         "id" : 15,
@@ -162,6 +176,7 @@
         "image_alt" : "alt",
         "title" : "Title",
         "author" : "Some author",
-        "price" : 599
+        "price" : 599,
+        "description" : ""
     }
 ]
