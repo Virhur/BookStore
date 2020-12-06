@@ -16,6 +16,39 @@ class Book {
         return this.price.toLocaleString();
     }
 
+    getCartRowHTML(count) {
+        let total = this.price * count;
+        total = total.toLocaleString();
+
+        return `
+        <tr>
+            <td>${this.id}</td>
+            <td>
+                <img src="${this.image_small}" alt="${this.image_alt}" class="cart-image">
+                ${this.title}
+            </td>
+            <td>
+                ${this.getFormattedPrice()} RSD
+            </td>
+            <td>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="input-group-text decrement-cart-item" data-id='${this.id}'>-</button>
+                    </div>
+                    <input type="text" class="form-control" style="width: 45px" value="${count}" readonly>
+                    <div class="input-group-append">
+                        <button class="input-group-text increment-cart-item" data-id='${this.id}'>+</button>
+                        <button class="btn btn-danger remove-from-cart" data-id='${this.id}'>
+                            <i class="fa fa-times" aria-hidden="true" data-id='${this.id}'></i>
+                        </button>
+                    </div>
+                </div>
+            </td>
+            <td>${total} RSD</td>
+        </tr>
+        `;
+    }
+
     getListingHTML() {
         return `
         <div class='book-listing' data-category='${this.category}'>
@@ -103,15 +136,17 @@ class Book {
 }
 class Books {
     constructor() {
-        $.getJSON('data/books.json', (data) => {
-            this.data = [];
+        $.ajax({
+            url : 'data/books.json',
+            method : 'GET',
+            async : false,
+            success : (data) => {
+                this.data = [];
 
-            data.forEach(item => {
-                this.data.push(new Book(item));
-            })
-
-            this.loadBooks(this.data);
-            this.loadModals(this.data);
+                data.forEach(item => {
+                    this.data.push(new Book(item));
+                })
+            }
         });
     }
 
@@ -181,13 +216,3 @@ class Books {
 }
 
 let books = new Books();
-
-$(function () {
-    let toggleFilterElements = document.getElementsByClassName('toggle-filter');
-
-    Array.from(toggleFilterElements).forEach(element => {
-        element.addEventListener('click', (event) => {
-            books.filterBooksEvent(event);
-        });
-    });
-});

@@ -6,11 +6,16 @@ class Cart {
             this.cart = [];
 
         this.loadCart();
+        this.onCartPage = false;
+        this.totalPrice = 0;
     }
 
     setToLocalStorage() {
         localStorage.setItem('cart', JSON.stringify(this.cart));
         this.loadCart();
+
+        if (this.onCartPage)
+            this.loadCartPage();
     }
 
     getTotalCount() {
@@ -21,6 +26,36 @@ class Cart {
         });
 
         return count;
+    }
+
+    getTotalPrice() {
+        let total = this.totalPrice.toLocaleString();
+        $('#total-price').html(total);
+    }
+
+    loadCartPage() {
+        if (this.cart.length !== 0) {
+            $('#cart-has-no-items').addClass('d-none');
+            $('.cart-has-items').removeClass('d-none');
+
+            this.totalPrice = 0;
+            let html = '';
+
+            this.cart.forEach(item => {
+                let book = books.getBookById(item.id);
+                if (book != null)
+                    html += book.getCartRowHTML(item.count);
+                this.totalPrice += item.count * book.price;
+            });
+
+            $('#cart-content').html(html);
+            this.getTotalPrice();
+        } else {
+            $('#cart-has-no-items').removeClass('d-none');
+            $('.cart-has-items').addClass('d-none');
+        }
+
+        this.onCartPage = true;
     }
 
     loadCart() {
@@ -112,8 +147,10 @@ class Cart {
     }
 }
 
+let cart;
+
 $(function () {
-    let cart = new Cart();
+    cart = new Cart();
 
     $(document).on('click', '.add-to-cart', (event) => {
         let element = $(event.target);

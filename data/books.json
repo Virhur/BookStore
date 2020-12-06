@@ -13,13 +13,13 @@
     {
         "id" : 2,
         "category" : "philosophy",
-        "image_small" : "images/aristotel_i_henologija_v.jpg",
-        "image_large" : "images/aristotel_i_henologija_vv.jpg",
+        "image_small" : "images/misliti_drugacije_filozofija_neslaganja_v-2.jpg",
+        "image_large" : "images/misliti_drugacije_filozofija_neslaganja_vv-2.jpg",
         "image_alt" : "alt",
-        "title" : "Aristotel i henologija",
-        "author" : "Slobodan Žunjić",
-        "price" : 1298,
-        "description" : "Problem jednog u Aristotelevoj metafizici"
+        "title" : "Misliti drugačije",
+        "author" : "Dijego Fuzaro",
+        "price" : 880,
+        "description" : "Knjiga italijanskog filozofa gramšijanske marksističke usmerenosti Dijega Fuzara važan je doprinos borbi za slobodu mišljenja, govora i zastupanja drugačijeg stava od društveno vladajućeg. Onaj ko razmišlja, taj je nekonformista koji ne strahuje od toga da bude u manjini. Najlepši i najmoćniji glasovi ne pevaju u horu nego su svojstva solista. Retki su tako upečatljivi primeri koji pokazuju istinitost ove rečenice kao što je knjiga Misliti drugačije. U čitavom delu autor spori vladajuće vrednosti i norme koje neoliberalni poredak nameće kao samorazumljive atomizovanom globalnom društvu. No, u svom obračunu s potrošačkom kulturom, „profitnom desnicom“ i neoliberalizmom, on ne štedi ni „kulturalnu levicu“, intelektualce i novinare, gramšijevskim rečnikom „funkcionere nadgradnje“, pokazujući da su i oni umnogome doprineli stvaranju jednog politički korektnog diskursa koji sputava kritiku kao conditio sine qua non društvenog razvoja. Upravo zbog toga što je postojeće banalno i samorazumljivo najčešće je pošteđeno kritike, a time je zaprečen razvoj ličnosti i društva."
     },
     {
         "id" : 3,
@@ -156,12 +156,12 @@
     {
         "id" : 15,
         "category" : "philosophy",
-        "image_small" : "images/o_krivici_i_zrtvovanju_v-2.jpg",
-        "image_large" : "images/o_krivici_i_zrtvovanju_vv-2.jpg",
+        "image_small" : "images/mit_o_sizifu_v.jpg",
+        "image_large" : "images/mit_o_sizifu_vv.jpg",
         "image_alt" : "alt",
-        "title" : "O krivici i žrtvovanju",
-        "author" : "Vladeta Jerotić",
-        "price" : 1100,
-        "description" : ""
+        "title" : "Mit o Sizifu",
+        "author" : "Alber Kami",
+        "price" : 699,
+        "description" : "Filozofski esej Mit o Sizifu Alber Kami objavljuje iste godine kad i roman Stranac, pa se ove dve knjige često sagledavaju kao tematski komplementarne. Mit o Sizifu, jedan od najčuvenijih egzistencijalističkih tekstova dvadesetog veka, koji počinje postavljanjem filozofskog problema samoubistva, predstavlja analizu nihilizma i prirode apsurda, kao i čovekovog života u apsurdnom univerzumu bez reda i smisla.<br><br>Za Kamija je Sizif idealan primer apsurda – čovek koji je usprotivio bogovima, i sad izdržava svoju kaznu. Međutim, u opisu Sizifa koji zastaje da bi pogledao kako se kamen još jednom kotrlja niz padinu, Kami opisuje osvešćenje i samosvest glavnog junaka, čoveka koji spoznaje svoju sudbinu i u njoj pronalazi snagu.<br><br>Danas, kada se čovečanstvo suočava sa tolikim političkim i društvenim izazovima, kada je trka za moći i uspehom jača nego ikad, a kad ogroman deo ljudske populacije biva pritisnut Sizifovim poslom, ova knjiga je ponovo, još jednom i drugačije relevantna."
     }
 ]
