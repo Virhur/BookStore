@@ -30,8 +30,8 @@ class Cart {
             let html = '';
 
             this.cart.forEach(item => {
-                let book = getBookById(item.id);
-                html += this.createCartItem(book, item.count);
+                let book = books.getBookById(item.id);
+                html += book.getCartHTML(item.count);
             })
 
             $('#korpa-items').html(html);
@@ -42,28 +42,6 @@ class Cart {
 
         let count = this.getTotalCount();
         $('#total-count').html(`(${count})`);
-    }
-
-    createCartItem(book, count) {
-        return `
-        <li class="list-group-item d-flex justify-content-between">
-            <span>${book.title}</span>
-            <span>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <button class="input-group-text decrement-cart-item" data-id='${book.id}'>-</button>
-                    </div>
-                    <input type="text" class="form-control" style="width: 45px" value="${count}" readonly>
-                    <div class="input-group-append">
-                        <button class="input-group-text increment-cart-item" data-id='${book.id}'>+</button>
-                        <button class="btn btn-danger remove-from-cart" data-id='${book.id}'>
-                            <i class="fa fa-times" aria-hidden="true" data-id='${book.id}'></i>
-                        </button>
-                    </div>
-                </div>
-            </span>
-        </li>
-        `;
     }
 
     addToCart(id) {
