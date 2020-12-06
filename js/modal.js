@@ -9,7 +9,8 @@ class Modal {
         let element = $(event.target);
         this.id = element.data('id');
 
-        $(this.id).removeClass('d-none');
+        // $(this.id).removeClass('d-none');
+        $(this.id).fadeIn('slow');
         $('body').addClass('no-scroll');
 
         this.opened = true;
@@ -18,7 +19,7 @@ class Modal {
     close(event) {
         event.preventDefault();
 
-        $(this.id).addClass('d-none');
+        $(this.id).fadeOut('slow');
         $('body').removeClass('no-scroll');
 
         this.false = true;

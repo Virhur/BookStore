@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookStore | Početna strana</title>
+    <title>BookStore | Korpa</title>
     <meta name="description" content="prodavnica, knjiga, knjizara, e-knjige">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
@@ -21,9 +21,9 @@
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0 ">
                     <!-- dodati active klasu na odredjene strane -->
                     <li class="nav-item"> 
-                        <a class="nav-link active" href="index.html">Početna</a>
+                        <a class="nav-link" href="index.html">Početna</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a href="prodajna_mesta.html" class="nav-link">Prodajna mesta</a>
                     </li>
                     <li class="nav-item">
@@ -110,28 +110,107 @@
 
     <!-- main content start -->
     <div class="container">
-        <div class="row mt-5">
-            <div class="col-12 d-flex justify-content-center">
-                <h1>Preporučujemo</h1>
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-7 col-12">
+                <h2>Kako možemo da Vam pomognemo?</h2>
+                <form action="#" class='form mt-3' id='contact-form'>
+                    <div class="row form-group">
+                        <div class="col-6 from-group">
+                            <label for="ime">Ime</label>
+                            <input type="text" name="ime" id="ime" class="form-control" placeholder="Unesite ime ...">
+                            <div class="invalid-feedback d-none" id='ime-failed-required'>
+                                Polje je obavezno
+                            </div>
+                            <div class="invalid-feedback d-none" id='ime-failed-format'>
+                                Nije pravilan format imena
+                            </div>
+                        </div>
+                        <div class="col-6 from-group">
+                            <label for="prezime">Prezime</label>
+                            <input type="text" name="prezime" id="prezime" class="form-control" placeholder="Unesite prezime ...">
+                            <div class="invalid-feedback d-none" id='prezime-failed-required'>
+                                Polje je obavezno
+                            </div>
+                            <div class="invalid-feedback d-none" id='prezime-failed-format'>
+                                Nije pravilan format prezimena
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-6 from-group">
+                            <label for="telefon">Telefon</label>
+                            <input type="text" name="telefon" id="telefon" class="form-control" placeholder="Unesite telefon ...">
+                            <div class="invalid-feedback d-none" id='telefon-failed-required'>
+                                Polje je obavezno
+                            </div>
+                            <div class="invalid-feedback d-none" id='telefon-failed-format'>
+                                Nije pravilan format telefona
+                            </div>
+                        </div>
+                        <div class="col-6 from-group">
+                            <label for="email">E-mail</label>
+                            <input type="text" name="email" id="email" class="form-control" placeholder="Unesite e-mail adresu ...">
+                            <div class="invalid-feedback d-none" id='email-failed-required'>
+                                Polje je obavezno
+                            </div>
+                            <div class="invalid-feedback d-none" id='email-failed-format'>
+                                Nije pravilan format email adrese
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-12 from-group">
+                            <label for="poruka">Poruka</label>
+                            <textarea name="poruka" id="poruka" cols="30" rows="10" class="form-control" placeholder="Unesite poruku ..."></textarea>
+                            <div class="invalid-feedback d-none" id='poruka-failed-required'>
+                                Polje je obavezno
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-12 form-group d-flex justify-content-end">
+                            <button type="submit" class='btn btn-primary'>
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                Pošalji
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-12 d-flex justify-content-center">
-                <button class="btn btn-outline-primary mr-2 toggle-filter active" data-filter='all'>Sve</button>
-                <button class="btn btn-outline-primary mr-2 toggle-filter" data-filter='fantasy'>Fantastika</button>
-                <button class="btn btn-outline-primary mr-2 toggle-filter" data-filter='philosophy'>Filozofija</button>
-                <button class="btn btn-outline-primary mr-2 toggle-filter" data-filter='history'>Istorija</button>
-                <button class="btn btn-outline-primary mr-2 toggle-filter" data-filter='thrillers'>Trilleri</button>
+            <div class="col-lg-5 col-12">
+                <h2>Kontakt informacije</h2>
+                <div class="row mt-4">
+                    <div class="col-12 d-flex">
+                        <i class="fa fa-phone mt-2" aria-hidden="true"></i>
+                        <div class="ml-3">
+                            <h4>Telefon</h4>
+                            <p>+ 381 60 123 45 67</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12 d-flex">
+                        <i class="fa fa-envelope mt-2" aria-hidden="true"></i>
+                        <div class="ml-3">
+                            <h4>E-mail</h4>
+                            <p>info@bookstore.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12 d-flex">
+                        <i class="fa fa-clock mt-2" aria-hidden="true"></i>
+                        <div class="ml-3">
+                            <h4>Radno vreme</h4>
+                            <p>Pon-Sub : 09 - 17h</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row mt-5" id='knjige'>
-            
-        </div>
-
-        <div id="modals">
-            
         </div>
     </div>
+
+    <div id="map" style="width:100%;height:400px;"></div> 
     <!-- main content end -->
 
     <!-- footer-start -->
@@ -144,8 +223,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous"></script>
     <script src="js/books.js"></script>
-    <script src="js/home.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/modal.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxPwWL0jmPKX2Tm0Ifq4eo_pEFfwGRO1s&callback=initMap"></script>
 </body>
 </html>

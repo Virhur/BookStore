@@ -98,7 +98,7 @@ class Book {
 
     getModalHTML() {
         return `
-        <div class="book-modal d-none" id="book-modal-${this.id}">
+        <div class="book-modal" id="book-modal-${this.id}" style='display: none;'>
             <div class="container bg-white book-modal-content">
                 <div class="row">
                     <div class="col-6">
@@ -199,8 +199,13 @@ class Books {
             filtered_books = this.filterBooks(filter);
         }
         
-        document.getElementById('knjige').innerHTML = "";
-        this.loadBooks(filtered_books);
+        $('#knjige').fadeOut('slow'); 
+        setTimeout(() => {
+            document.getElementById('knjige').innerHTML = "";
+            this.loadBooks(filtered_books);
+            $('#knjige').fadeIn('slow');
+        }, 500);
+        
     
         this.removeActiveClassesFromFilterButtons();
         element.classList.add('active');

@@ -71,6 +71,7 @@ $(function () {
     $('#name').blur((event) => {
         let element = $(event.target);
         let value = element.val();
+        buyForm.imeValid = false;
 
         let required = false;
         if (!buyForm.requiredTextValidation(value)) {
@@ -102,6 +103,7 @@ $(function () {
     $('#ulica_i_broj').blur((event) => {
         let element = $(event.target);
         let value = element.val();
+        buyForm.adresaValid = false;
 
         let required = false;
         if (!buyForm.requiredTextValidation(value)) {
@@ -123,6 +125,7 @@ $(function () {
     $('#postanski_broj').blur((event) => {
         let element = $(event.target);
         let value = element.val();
+        buyForm.postanskiBrojValid = false;
 
         let required = false;
         if (!buyForm.requiredTextValidation(value)) {
@@ -144,6 +147,7 @@ $(function () {
     $('#mesto').blur((event) => {
         let element = $(event.target);
         let value = element.val();
+        buyForm.mestoValid = false;
 
         let required = false;
         if (!buyForm.requiredTextValidation(value)) {
@@ -165,6 +169,7 @@ $(function () {
     $('#telefon').blur((event) => {
         let element = $(event.target);
         let value = element.val();
+        buyForm.telefonValid = false;
 
         let required = false;
         if (!buyForm.requiredTextValidation(value)) {
@@ -196,6 +201,7 @@ $(function () {
     $('#email').blur((event) => {
         let element = $(event.target);
         let value = element.val();
+        buyForm.emailValid = false;
 
         let required = false;
         if (!buyForm.requiredTextValidation(value)) {
@@ -227,6 +233,7 @@ $(function () {
     $('#drzava').change((event) => {
         let element = $(event.target);
         let value = element.val();
+        buyForm.drzavaValid = false;
 
         if (!buyForm.requiredSelectValidation(value)) {
             element.addClass('is-invalid');
@@ -254,6 +261,7 @@ $(function () {
     $('#drzava_manual').blur((event) => {
         let element = $(event.target);
         let value = element.val();
+        buyForm.drzavaManualValid = false;
 
         let required = false;
         if (!buyForm.requiredTextValidation(value)) {
@@ -286,5 +294,5 @@ $(function () {
             cart = new Cart();
             cart.loadCartPage();
         }
-    })
+    });
 })
