@@ -40,15 +40,20 @@ class Cart {
 
             this.totalPrice = 0;
             let html = '';
+            let htmlMobile = '';
 
             this.cart.forEach(item => {
                 let book = books.getBookById(item.id);
-                if (book != null)
+                if (book != null) {
                     html += book.getCartRowHTML(item.count);
+                    htmlMobile += book.getCartRowHTMLMobile(item.count);
+                }
+                    
                 this.totalPrice += item.count * book.price;
             });
 
             $('#cart-content').html(html);
+            $("#cart-content-mobile").html(htmlMobile);
             this.getTotalPrice();
         } else {
             $('#cart-has-no-items').removeClass('d-none');

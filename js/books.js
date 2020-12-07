@@ -49,6 +49,39 @@ class Book {
         `;
     }
 
+    getCartRowHTMLMobile(count) {
+        let total = this.price * count;
+        total = total.toLocaleString();
+
+        return `
+            <div class="row d-flex justify-content-around cart-row-mobile">
+                <div class='col-3 d-flex justify-content-center'>
+                    <img src="${this.image_small}" alt="${this.image_alt}" class="cart-image">
+                </div>
+                <div class='col-9 d-flex flex-column'>
+                    <div class='w-100 d-flex flex-row justify-content-between align-items-center'>
+                        <span class='cart-title'>${this.title}</span> <br>
+                        <i class="fa fa-times remove-from-cart" aria-hidden="true" data-id='${this.id}'></i>
+                    </div>
+                    <div class='mt-3 w-100 d-flex flex-row justify-content-between align-items-end'>
+                        <span class='cart-price'>${total} RSD</span>
+                        <div class="input-group cart-controls">
+                            <div class="input-group-prepend">
+                                <button class="input-group-text decrement-cart-item" data-id='${this.id}'>-</button>
+                            </div>
+                            <div class='cart-count'>
+                                <span>${count}</span>
+                            </div>
+                            <div class="input-group-append">
+                                <button class="input-group-text increment-cart-item" data-id='${this.id}'>+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+    }
+
     getListingHTML() {
         return `
         <div class='book-listing' data-category='${this.category}'>
@@ -72,26 +105,29 @@ class Book {
     }
 
     getCartHTML(count) {
+        let total = this.price * count;
+        total = total.toLocaleString();
+
         return `
-        <li class="list-group-item d-flex justify-content-between">
-            <span>
-                ${this.title} <br>
-                ${this.getFormattedPrice()} RSD
-            </span>
-            <span>
-                <div class="input-group">
+        <li class="list-group-item d-flex flex-column">
+            <div class='w-100 d-flex flex-row justify-content-between align-items-center'>
+                <span class='cart-title'>${this.title}</span> <br>
+                <i class="fa fa-times remove-from-cart" aria-hidden="true" data-id='${this.id}'></i>
+            </div>
+            <div class='mt-3 w-100 d-flex flex-row justify-content-between align-items-end'>
+                <span class='cart-price'>${total} RSD</span>
+                <div class="input-group cart-controls">
                     <div class="input-group-prepend">
                         <button class="input-group-text decrement-cart-item" data-id='${this.id}'>-</button>
                     </div>
-                    <div class='cart-count'>${count}</div>
+                    <div class='cart-count'>
+                        <span>${count}</span>
+                    </div>
                     <div class="input-group-append">
                         <button class="input-group-text increment-cart-item" data-id='${this.id}'>+</button>
-                        <button class="btn btn-danger remove-from-cart" data-id='${this.id}'>
-                            <i class="fa fa-times" aria-hidden="true" data-id='${this.id}'></i>
-                        </button>
                     </div>
                 </div>
-            </span>
+            </div>
         </li>
         `;
     }

@@ -1,13 +1,3 @@
-#korpa {
-    width: 400px;
-}
-
-.cart-count {
-    padding: 5px;
-    background-color: rgb(233, 236, 239);
-    border: 1px solid rgb(206, 212, 218);
-}
-
 #knjige {
     justify-content: space-around;
 }
@@ -87,4 +77,51 @@ body {
 #footer {
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+#korpa-items {
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+#korpa {
+    width: 290px;
+}
+
+.cart-controls {
+    width: 60px;
+}
+
+.cart-count {
+    padding: 5px;
+    background-color: rgb(233, 236, 239);
+    border-top: 1px solid rgb(206, 212, 218);
+    border-bottom: 1px solid rgb(206, 212, 218);
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group-prepend .input-group-text, .input-group-append .input-group-text {
+    padding: 4px;
+}
+
+.input-group-prepend .input-group-text {
+    border-right: none;
+}
+
+.input-group-append .input-group-text {
+    border-left: none;
+}
+
+.remove-from-cart {
+    padding: 4px;
+}
+
+.cart-row-mobile {
+    border-top: 1px solid rgb(206, 212, 218);
+    border-bottom: 1px solid rgb(206, 212, 218);
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
