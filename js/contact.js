@@ -39,7 +39,172 @@ class ContactForm {
         return regex.test(value);
     }
 
+    validateIme() {
+        let element = $('#ime');
+        let value = element.val();
+        this.imeValid = false;
+
+        let required = false;
+        if (!this.requiredTextValidation(value)) {
+            element.addClass('is-invalid');
+            $('#ime-failed-required').removeClass('d-none');
+        }
+        else {
+            required = true;
+            $('#ime-failed-required').addClass('d-none');
+        }
+
+        let validInput = false;
+        if(!this.nameValidation(value)) {
+            element.addClass('is-invalid');
+            $('#ime-failed-format').removeClass('d-none');
+        }
+        else {
+            validInput = true;
+            $('#ime-failed-format').addClass('d-none');
+        }
+
+        if (required && validInput) {
+            element.addClass('is-valid');
+            element.removeClass('is-invalid');
+            this.imeValid = true;
+        }
+
+        return this.imeValid;
+    }
+
+    validatePrezime() {
+        let element = $('#prezime');
+        let value = element.val();
+        this.prezimeValid = false;
+
+        let required = false;
+        if (!this.requiredTextValidation(value)) {
+            element.addClass('is-invalid');
+            $('#prezime-failed-required').removeClass('d-none');
+        }
+        else {
+            required = true;
+            $('#prezime-failed-required').addClass('d-none');
+        }
+
+        let validInput = false;
+        if(!this.nameValidation(value)) {
+            element.addClass('is-invalid');
+            $('#prezime-failed-format').removeClass('d-none');
+        }
+        else {
+            validInput = true;
+            $('#prezime-failed-format').addClass('d-none');
+        }
+
+        if (required && validInput) {
+            element.addClass('is-valid');
+            element.removeClass('is-invalid');
+            this.prezimeValid = true;
+        }
+    }
+
+    validateTelefon() {
+        let element = $('#telefon');
+        let value = element.val();
+        this.telefonValid = false;
+
+        let required = false;
+        if (!this.requiredTextValidation(value)) {
+            element.addClass('is-invalid');
+            $('#telefon-failed-required').removeClass('d-none');
+        }
+        else {
+            required = true;
+            $('#telefon-failed-required').addClass('d-none');
+        }
+
+        let validInput = false;
+        if(!this.phoneValidation(value)) {
+            element.addClass('is-invalid');
+            $('#telefon-failed-format').removeClass('d-none');
+        }
+        else {
+            validInput = true;
+            $('#telefon-failed-format').addClass('d-none');
+        }
+
+        if (required && validInput) {
+            element.addClass('is-valid');
+            element.removeClass('is-invalid');
+            this.telefonValid = true;
+        }
+
+        return this.telefonValid;
+    }
+
+    validateEmail() {
+        let element = $('#email');
+        let value = element.val();
+        this.emailValid = false;
+
+        let required = false;
+        if (!this.requiredTextValidation(value)) {
+            element.addClass('is-invalid');
+            $('#email-failed-required').removeClass('d-none');
+        }
+        else {
+            required = true;
+            $('#email-failed-required').addClass('d-none');
+        }
+
+        let validInput = false;
+        if(!this.emailValidation(value)) {
+            element.addClass('is-invalid');
+            $('#email-failed-format').removeClass('d-none');
+        }
+        else {
+            validInput = true;
+            $('#email-failed-format').addClass('d-none');
+        }
+
+        if (required && validInput) {
+            element.addClass('is-valid');
+            element.removeClass('is-invalid');
+            this.emailValid = true;
+        }
+
+        return this.emailValid;
+    }
+
+    validatePoruka() {
+        let element = $('#poruka');
+        let value = element.val();
+        this.porukaValid = false;
+
+        let required = false;
+        if (!this.requiredTextValidation(value)) {
+            element.addClass('is-invalid');
+            $('#poruka-failed-required').removeClass('d-none');
+        }
+        else {
+            required = true;
+            $('#poruka-failed-required').addClass('d-none');
+        }
+
+        if (required) {
+            element.addClass('is-valid');
+            element.removeClass('is-invalid');
+            this.porukaValid = true;
+        }
+
+        return this.porukaValid;
+    }
+
+
     isValid() {
+        this.validateIme();
+        this.validatePrezime();
+        this.validateTelefon();
+        this.validateEmail();
+        this.validatePoruka();
+
         return this.imeValid == true &&
         this.prezimeValid == true &&
         this.telefonValid == true &&
@@ -52,153 +217,23 @@ $(function () {
     let contactForm = new ContactForm();
 
     $('#telefon').blur((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        contactForm.telefonValid = false;
-
-        let required = false;
-        if (!contactForm.requiredTextValidation(value)) {
-            element.addClass('is-invalid');
-            $('#telefon-failed-required').removeClass('d-none');
-        }
-        else {
-            required = true;
-            $('#telefon-failed-required').addClass('d-none');
-        }
-
-        let validInput = false;
-        if(!contactForm.phoneValidation(value)) {
-            element.addClass('is-invalid');
-            $('#telefon-failed-format').removeClass('d-none');
-        }
-        else {
-            validInput = true;
-            $('#telefon-failed-format').addClass('d-none');
-        }
-
-        if (required && validInput) {
-            element.addClass('is-valid');
-            element.removeClass('is-invalid');
-            contactForm.telefonValid = true;
-        }
+        contactForm.validateTelefon();
     });
 
     $('#email').blur((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        contactForm.emailValid = false;
-
-        let required = false;
-        if (!contactForm.requiredTextValidation(value)) {
-            element.addClass('is-invalid');
-            $('#email-failed-required').removeClass('d-none');
-        }
-        else {
-            required = true;
-            $('#email-failed-required').addClass('d-none');
-        }
-
-        let validInput = false;
-        if(!contactForm.emailValidation(value)) {
-            element.addClass('is-invalid');
-            $('#email-failed-format').removeClass('d-none');
-        }
-        else {
-            validInput = true;
-            $('#email-failed-format').addClass('d-none');
-        }
-
-        if (required && validInput) {
-            element.addClass('is-valid');
-            element.removeClass('is-invalid');
-            contactForm.emailValid = true;
-        }
+        contactForm.validateEmail();
     });
 
     $('#ime').blur((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        contactForm.imeValid = false;
-
-        let required = false;
-        if (!contactForm.requiredTextValidation(value)) {
-            element.addClass('is-invalid');
-            $('#ime-failed-required').removeClass('d-none');
-        }
-        else {
-            required = true;
-            $('#ime-failed-required').addClass('d-none');
-        }
-
-        let validInput = false;
-        if(!contactForm.nameValidation(value)) {
-            element.addClass('is-invalid');
-            $('#ime-failed-format').removeClass('d-none');
-        }
-        else {
-            validInput = true;
-            $('#ime-failed-format').addClass('d-none');
-        }
-
-        if (required && validInput) {
-            element.addClass('is-valid');
-            element.removeClass('is-invalid');
-            contactForm.imeValid = true;
-        }
+        contactForm.validateIme();
     });
 
     $('#prezime').blur((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        contactForm.prezimeValid = false;
-
-        let required = false;
-        if (!contactForm.requiredTextValidation(value)) {
-            element.addClass('is-invalid');
-            $('#prezime-failed-required').removeClass('d-none');
-        }
-        else {
-            required = true;
-            $('#prezime-failed-required').addClass('d-none');
-        }
-
-        let validInput = false;
-        if(!contactForm.nameValidation(value)) {
-            element.addClass('is-invalid');
-            $('#prezime-failed-format').removeClass('d-none');
-        }
-        else {
-            validInput = true;
-            $('#prezime-failed-format').addClass('d-none');
-        }
-
-        if (required && validInput) {
-            element.addClass('is-valid');
-            element.removeClass('is-invalid');
-            contactForm.prezimeValid = true;
-        }
+        contactForm.validatePrezime();
     });
 
     $('#poruka').blur((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        contactForm.porukaValid = false;
-
-        let required = false;
-        if (!contactForm.requiredTextValidation(value)) {
-            element.addClass('is-invalid');
-            $('#poruka-failed-required').removeClass('d-none');
-        }
-        else {
-            required = true;
-            $('#poruka-failed-required').addClass('d-none');
-        }
-
-        if (required) {
-            element.addClass('is-valid');
-            element.removeClass('is-invalid');
-            contactForm.porukaValid = true;
-        }
+        contactForm.validatePoruka();
     });
 
     $('#contact-form').on('submit', (event) => {

@@ -2,7 +2,8 @@ class BuyForm {
     constructor () {    
         this.imeValid = false;
         this.drzavaValid = false;
-        this.drzavaManualValid = true;
+        this.drzavaManualValid = false;
+        this.drzavaManualRequired = false;
         this.adresaValid = false;
         this.postanskiBrojValid = false;
         this.mestoValid = false;
@@ -42,7 +43,245 @@ class BuyForm {
         return regex.test(value);
     }
 
+    validateIme() {
+        let element = $('#name');
+        let value = element.val();
+        this.imeValid = false;
+
+        let required = false;
+        if (!this.requiredTextValidation(value)) {
+            element.addClass('is-invalid');
+            $('#name-failed-required').removeClass('d-none');
+        }
+        else {
+            required = true;
+            $('#name-failed-required').addClass('d-none');
+        }
+
+        let validInput = false;
+        if(!this.nameValidation(value)) {
+            element.addClass('is-invalid');
+            $('#name-failed-format').removeClass('d-none');
+        }
+        else {
+            validInput = true;
+            $('#name-failed-format').addClass('d-none');
+        }
+
+        if (required && validInput) {
+            element.addClass('is-valid');
+            element.removeClass('is-invalid');
+            this.imeValid = true;
+        }
+
+        return this.imeValid;
+    }
+
+    validateDrzava() {
+        let element = $('#drzava');
+        let value = element.val();
+        this.drzavaValid = false;
+
+        if (!this.requiredSelectValidation(value)) {
+            element.addClass('is-invalid');
+            $('#drzava-failed-required').removeClass('d-none');
+        }
+        else {
+            $('#drzava-failed-required').addClass('d-none');
+            element.removeClass('is-invalid');
+            element.addClass('is-valid');
+            this.drzavaValid = true;
+        }
+
+        if (value == 5) {
+            $('#drzava_manual_group').removeClass('d-none');
+            this.drzavaManualRequired = true;
+            this.drzavaManualValid = false;
+        }
+        else {
+            $('#drzava_manual_group').addClass('d-none');
+            this.drzavaManualRequired = false;
+            this.drzavaManualValid = true;
+        }
+
+        return this.drzavaValid;
+    }
+
+    validateDrzavaManual() {
+        let element = $('#drzava_manual');
+        let value = element.val();
+        this.drzavaManualValid = false;
+
+        let required = false;
+        if (this.drzavaManualRequired && !this.requiredTextValidation(value)) {
+            element.addClass('is-invalid');
+            $('#drzava_manual-failed-required').removeClass('d-none');
+        }
+        else {
+            required = true;
+            $('#drzava_manual-failed-required').addClass('d-none');
+        }
+
+        if (required) {
+            element.addClass('is-valid');
+            element.removeClass('is-invalid');
+            this.drzavaManualValid = true;
+        }
+
+        return this.drzavaManualValid;
+    }
+
+    validateAdresa() {
+        let element = $('#ulica_i_broj');
+        let value = element.val();
+        this.adresaValid = false;
+
+        let required = false;
+        if (!this.requiredTextValidation(value)) {
+            element.addClass('is-invalid');
+            $('#ulica_i_broj-failed-required').removeClass('d-none');
+        }
+        else {
+            required = true;
+            $('#ulica_i_broj-failed-required').addClass('d-none');
+        }
+
+        if (required) {
+            element.addClass('is-valid');
+            element.removeClass('is-invalid');
+            this.adresaValid = true;
+        }
+
+        return this.adresaValid;
+    }
+
+    validatePostanskiBroj() {
+        let element = $('#postanski_broj');
+        let value = element.val();
+        this.postanskiBrojValid = false;
+
+        let required = false;
+        if (!this.requiredTextValidation(value)) {
+            element.addClass('is-invalid');
+            $('#postanski_broj-failed-required').removeClass('d-none');
+        }
+        else {
+            required = true;
+            $('#postanski_broj-failed-required').addClass('d-none');
+        }
+
+        if (required) {
+            element.addClass('is-valid');
+            element.removeClass('is-invalid');
+            this.postanskiBrojValid = true;
+        }
+
+        return this.postanskiBrojValid;
+    }
+
+    validateMesto() {
+        let element = $('#mesto');
+        let value = element.val();
+        this.mestoValid = false;
+
+        let required = false;
+        if (!this.requiredTextValidation(value)) {
+            element.addClass('is-invalid');
+            $('#mesto-failed-required').removeClass('d-none');
+        }
+        else {
+            required = true;
+            $('#mesto-failed-required').addClass('d-none');
+        }
+
+        if (required) {
+            element.addClass('is-valid');
+            element.removeClass('is-invalid');
+            this.mestoValid = true;
+        }
+
+        return this.mestoValid;
+    }
+
+    validateTelefon() {
+        let element = $('#telefon');
+        let value = element.val();
+        this.telefonValid = false;
+
+        let required = false;
+        if (!this.requiredTextValidation(value)) {
+            element.addClass('is-invalid');
+            $('#telefon-failed-required').removeClass('d-none');
+        }
+        else {
+            required = true;
+            $('#telefon-failed-required').addClass('d-none');
+        }
+
+        let validInput = false;
+        if(!this.phoneValidation(value)) {
+            element.addClass('is-invalid');
+            $('#telefon-failed-format').removeClass('d-none');
+        }
+        else {
+            validInput = true;
+            $('#telefon-failed-format').addClass('d-none');
+        }
+
+        if (required && validInput) {
+            element.addClass('is-valid');
+            element.removeClass('is-invalid');
+            this.telefonValid = true;
+        }
+
+        return this.telefonValid;
+    }
+
+    validateEmail() {
+        let element = $('#email');
+        let value = element.val();
+        this.emailValid = false;
+
+        let required = false;
+        if (!this.requiredTextValidation(value)) {
+            element.addClass('is-invalid');
+            $('#email-failed-required').removeClass('d-none');
+        }
+        else {
+            required = true;
+            $('#email-failed-required').addClass('d-none');
+        }
+
+        let validInput = false;
+        if(!this.emailValidation(value)) {
+            element.addClass('is-invalid');
+            $('#email-failed-format').removeClass('d-none');
+        }
+        else {
+            validInput = true;
+            $('#email-failed-format').addClass('d-none');
+        }
+
+        if (required && validInput) {
+            element.addClass('is-valid');
+            element.removeClass('is-invalid');
+            this.emailValid = true;
+        }
+
+        return this.emailValid;
+    }
+
+
     isValid() {
+        this.validateIme();
+        this.validateDrzava();
+        this.validateDrzavaManual();
+        this.validateAdresa();
+        this.validatePostanskiBroj();
+        this.validateMesto();
+        this.validateTelefon();
+        this.validateEmail();
+
         return this.imeValid == true &&
             this.drzavaValid == true &&
             this.drzavaManualValid == true &&
@@ -69,215 +308,35 @@ $(function () {
     let buyForm = new BuyForm();
 
     $('#name').blur((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        buyForm.imeValid = false;
-
-        let required = false;
-        if (!buyForm.requiredTextValidation(value)) {
-            element.addClass('is-invalid');
-            $('#name-failed-required').removeClass('d-none');
-        }
-        else {
-            required = true;
-            $('#name-failed-required').addClass('d-none');
-        }
-
-        let validInput = false;
-        if(!buyForm.nameValidation(value)) {
-            element.addClass('is-invalid');
-            $('#name-failed-format').removeClass('d-none');
-        }
-        else {
-            validInput = true;
-            $('#name-failed-format').addClass('d-none');
-        }
-
-        if (required && validInput) {
-            element.addClass('is-valid');
-            element.removeClass('is-invalid');
-            buyForm.imeValid = true;
-        }
+        buyForm.validateIme();
     });
 
     $('#ulica_i_broj').blur((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        buyForm.adresaValid = false;
-
-        let required = false;
-        if (!buyForm.requiredTextValidation(value)) {
-            element.addClass('is-invalid');
-            $('#ulica_i_broj-failed-required').removeClass('d-none');
-        }
-        else {
-            required = true;
-            $('#ulica_i_broj-failed-required').addClass('d-none');
-        }
-
-        if (required) {
-            element.addClass('is-valid');
-            element.removeClass('is-invalid');
-            buyForm.adresaValid = true;
-        }
+       buyForm.validateAdresa();
     });
 
     $('#postanski_broj').blur((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        buyForm.postanskiBrojValid = false;
-
-        let required = false;
-        if (!buyForm.requiredTextValidation(value)) {
-            element.addClass('is-invalid');
-            $('#postanski_broj-failed-required').removeClass('d-none');
-        }
-        else {
-            required = true;
-            $('#postanski_broj-failed-required').addClass('d-none');
-        }
-
-        if (required) {
-            element.addClass('is-valid');
-            element.removeClass('is-invalid');
-            buyForm.postanskiBrojValid = true;
-        }
+        buyForm.validatePostanskiBroj();
     });
 
     $('#mesto').blur((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        buyForm.mestoValid = false;
-
-        let required = false;
-        if (!buyForm.requiredTextValidation(value)) {
-            element.addClass('is-invalid');
-            $('#mesto-failed-required').removeClass('d-none');
-        }
-        else {
-            required = true;
-            $('#mesto-failed-required').addClass('d-none');
-        }
-
-        if (required) {
-            element.addClass('is-valid');
-            element.removeClass('is-invalid');
-            buyForm.mestoValid = true;
-        }
+        buyForm.validateMesto();
     });
 
     $('#telefon').blur((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        buyForm.telefonValid = false;
-
-        let required = false;
-        if (!buyForm.requiredTextValidation(value)) {
-            element.addClass('is-invalid');
-            $('#telefon-failed-required').removeClass('d-none');
-        }
-        else {
-            required = true;
-            $('#telefon-failed-required').addClass('d-none');
-        }
-
-        let validInput = false;
-        if(!buyForm.phoneValidation(value)) {
-            element.addClass('is-invalid');
-            $('#telefon-failed-format').removeClass('d-none');
-        }
-        else {
-            validInput = true;
-            $('#telefon-failed-format').addClass('d-none');
-        }
-
-        if (required && validInput) {
-            element.addClass('is-valid');
-            element.removeClass('is-invalid');
-            buyForm.telefonValid = true;
-        }
+        buyForm.validateTelefon();
     });
 
     $('#email').blur((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        buyForm.emailValid = false;
-
-        let required = false;
-        if (!buyForm.requiredTextValidation(value)) {
-            element.addClass('is-invalid');
-            $('#email-failed-required').removeClass('d-none');
-        }
-        else {
-            required = true;
-            $('#email-failed-required').addClass('d-none');
-        }
-
-        let validInput = false;
-        if(!buyForm.emailValidation(value)) {
-            element.addClass('is-invalid');
-            $('#email-failed-format').removeClass('d-none');
-        }
-        else {
-            validInput = true;
-            $('#email-failed-format').addClass('d-none');
-        }
-
-        if (required && validInput) {
-            element.addClass('is-valid');
-            element.removeClass('is-invalid');
-            buyForm.emailValid = true;
-        }
+        buyForm.validateEmail();
     });
 
     $('#drzava').change((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        buyForm.drzavaValid = false;
-
-        if (!buyForm.requiredSelectValidation(value)) {
-            element.addClass('is-invalid');
-            $('#drzava-failed-required').removeClass('d-none');
-        }
-        else {
-            $('#drzava-failed-required').addClass('d-none');
-            element.removeClass('is-invalid');
-            element.addClass('is-valid');
-            buyForm.drzavaValid = true;
-        }
-
-        if (value == 5) {
-            $('#drzava_manual_group').removeClass('d-none');
-            $('#drzava_manual').prop('required', true);
-            buyForm.drzavaManualValid = false;
-        }
-        else {
-            $('#drzava_manual_group').addClass('d-none');
-            $('#drzava_manual').prop('required', false);
-            buyForm.drzavaManualValid = true;
-        }
+        buyForm.validateDrzava();
     });
 
     $('#drzava_manual').blur((event) => {
-        let element = $(event.target);
-        let value = element.val();
-        buyForm.drzavaManualValid = false;
-
-        let required = false;
-        if (!buyForm.requiredTextValidation(value)) {
-            element.addClass('is-invalid');
-            $('#drzava_manual-failed-required').removeClass('d-none');
-        }
-        else {
-            required = true;
-            $('#drzava_manual-failed-required').addClass('d-none');
-        }
-
-        if (required) {
-            element.addClass('is-valid');
-            element.removeClass('is-invalid');
-            buyForm.drzavaManualValid = true;
-        }
+        buyForm.validateDrzavaManual();
     });
 
     $('#buy-form').on('reset', (event) => {
